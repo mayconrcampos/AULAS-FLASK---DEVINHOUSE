@@ -63,6 +63,7 @@ The following tools were used in this project:
 - [React](https://pt-br.reactjs.org/)
 - [React Native](https://reactnative.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Python](https://www.python.org)
 
 ## :white_check_mark: Requirements ##
 
