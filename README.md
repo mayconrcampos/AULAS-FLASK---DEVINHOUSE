@@ -46,23 +46,23 @@
 
 ## :dart: About ##
 
-Describe your project
+Aulas da SEMANA 09, 10 e 11 do MÓDULO 02 do DEVinHouse.
+## :sparkles: Tecnologia estudada ##
 
-## :sparkles: Features ##
+:heavy_check_mark: Backend com Flask ;\
+:heavy_check_mark: ORM com SQLAlchemy ;\
+:heavy_check_mark: Biblioteca Request ;\
+:heavy_check_mark: JSON e modelagem de dados ;\
+:heavy_check_mark: Rotas ;\
+:heavy_check_mark: Autenticação ;\
+:heavy_check_mark: RBAC, login com JWT e oAuth2 ;\
+:heavy_check_mark: Deploy ;\
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
 
 ## :rocket: Technologies ##
 
 The following tools were used in this project:
 
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
 - [Python](https://www.python.org)
 
 ## :white_check_mark: Requirements ##
