@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import Blueprint, request
 
 technology = Blueprint("technology", __name__, url_prefix="/technology")
