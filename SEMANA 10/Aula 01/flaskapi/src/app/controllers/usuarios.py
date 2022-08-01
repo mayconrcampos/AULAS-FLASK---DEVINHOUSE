@@ -1,8 +1,9 @@
 from flask import Blueprint
+from src.app.models import tech
 
 
-usuario = Blueprint("usuario", __name__, url_prefix="/usuario")
+technology = Blueprint("technology", __name__, url_prefix="/technology")
 
-@usuario.route("/", methods=["GET"])
+@technology.route("/", methods=["GET"])
 def lista_all():
     return "<h1>Olá todos usuários</h1>"
