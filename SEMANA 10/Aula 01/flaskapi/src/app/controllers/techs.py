@@ -14,7 +14,40 @@ def get_all_techs():
         return jsonify(techs_all), 200
     
     return {"erro": "Nenhum item cadastrado"}, 404
+
+
+@technology.route("/<int:id>", methods=["GET"])
+def get_one_tech(id: int):
+    try:
+        busca_tech = db.session.query(Tech).filter_by(id=id)
+        tech = technologiesSchema.dump(busca_tech)
+
+        if tech:
+            return jsonify(tech), 200
+
+        return {
+            "erro": "Item não encontrado"
+        }, 404
     
+
+    except:
+        return {"erro": "ID Inválido"}
+
+
+@technology.route("/<int:id>", methods=["PATCH"])
+def update_tech(id: int):
+    body = request.get_json()
+    busca_tech = db.session.query(Tech).filter_by(id=id).update(
+        {"name": body["name"]}, synchronize_session="fetch"
+    )
+    
+    if busca_tech:
+        db.session.commit()
+        return {"mensagem": f"item ID: {id} atualizado com sucesso"}, 200
+    
+    return {
+        "erro": "Item não encontrado"
+    }, 404
 
 
 @technology.route("/", methods=["POST"])
@@ -37,3 +70,16 @@ def insert_tech():
         "erro": "É preciso informar a tecnologia",
         
     }, 403
+
+
+@technology.route("/<int:id>", methods=["DELETE"])
+def delete_tech(id: int):
+    delete_tech = db.session.query(Tech).filter_by(id=id).delete(synchronize_session="fetch")
+    
+    if delete_tech:
+        db.session.commit()
+        return {"mensagem": f"item ID: {id} excluido com sucesso"}, 200
+    
+    return {
+        "erro": "Item não encontrado"
+    }, 404
