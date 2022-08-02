@@ -15,5 +15,5 @@ class TechnologySchema(ma.Schema):
     fields = ('id', 'name')
 
     
-technology_share_schema = TechnologySchema()
+#technology_share_schema = TechnologySchema()
 technologiesSchema = TechnologySchema(many=True)

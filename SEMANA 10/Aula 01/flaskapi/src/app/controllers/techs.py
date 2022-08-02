@@ -9,8 +9,11 @@ def get_all_techs():
 
     tech = Tech.query.all()
     techs_all = technologiesSchema.dump(tech)
+
+    if techs_all:
+        return jsonify(techs_all), 200
     
-    return jsonify(techs_all)
+    return {"erro": "Nenhum item cadastrado"}, 404
     
 
 
@@ -18,14 +21,19 @@ def get_all_techs():
 def insert_tech():
     body = request.get_json()
 
-    print(body)
+    if body['name']:
+        tech = Tech(
+            name=body["name"]
+        )
 
-    tech = Tech(
-        name=body["name"]
-    )
+        db.session.add(tech)
+        db.session.commit()
 
-    db.session.add(tech)
-    db.session.commit()
-
+        return {
+            "mensagem": "Item inserido com sucesso",
+            "tech": body
+            }, 201
     return {
-        "mensagem": "Item inserido com sucesso"}, 201
+        "erro": "É preciso informar a tecnologia",
+        
+    }, 403
