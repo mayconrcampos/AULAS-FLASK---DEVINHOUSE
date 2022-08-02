@@ -3,15 +3,13 @@ import os
 from src.app.config import app_config
 from src.app.routes import routes
 
-from flask_sqlalchemy import SQLAlchemy
-from flask_marshmallow import Marshmallow
+from src.app.db import db, ma
 from src.app.config import app_config
 from src.app.routes import routes
 from flask_migrate import Migrate
 
 
-db = SQLAlchemy()
-ma = Marshmallow()
+
 
 
 def create_app():

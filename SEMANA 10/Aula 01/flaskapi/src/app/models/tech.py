@@ -1,4 +1,4 @@
-from src.app import db, ma
+from src.app.db import db, ma
 
 class Tech(db.Model):
   __tablename__ = 'technologies'
@@ -16,3 +16,4 @@ class TechnologySchema(ma.Schema):
 
     
 technology_share_schema = TechnologySchema()
+technologiesSchema = TechnologySchema(many=True)
