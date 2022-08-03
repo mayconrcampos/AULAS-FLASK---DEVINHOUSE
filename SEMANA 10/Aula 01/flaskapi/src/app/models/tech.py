@@ -14,5 +14,6 @@ class TechnologySchema(ma.Schema):
   class Meta:
     fields = ('id', 'name')
 
-    
+
+technologySchema = TechnologySchema()    
 technologiesSchema = TechnologySchema(many=True)

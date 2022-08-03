@@ -9,9 +9,6 @@ from src.app.routes import routes
 from flask_migrate import Migrate
 
 
-
-
-
 def create_app():
     app = Flask(__name__)
 
@@ -20,9 +17,8 @@ def create_app():
     ma.init_app(app)
     routes(app)
 
-    from src.app.models import tech
+    from src.app.models import tech, devs, country, state, city, user, developers_tech
 
     Migrate(app=app, db=db, directory="./src/app/migrations")
 
     return app
-
