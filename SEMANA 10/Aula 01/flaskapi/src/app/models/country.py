@@ -15,6 +15,6 @@ class CountrySchema(ma.Schema):
     class Meta:
         Fields = ("id", "name", "language")
 
-
+ 
 country_share_schema = CountrySchema()
-countrys_share_schema = CountrySchema(many=True)
+countries_share_schema = CountrySchema(many=True)
