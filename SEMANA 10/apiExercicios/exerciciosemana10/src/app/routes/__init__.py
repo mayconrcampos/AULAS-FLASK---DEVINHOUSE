@@ -1,4 +1,4 @@
-from src.app.controllers.teste import teste
+from src.app.controllers.alunos import aluno
 
 def routes(app):
-    app.register_blueprint(teste)
+    app.register_blueprint(aluno)
