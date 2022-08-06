@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import Blueprint, jsonify, request
 from src.app.models.aluno import Aluno
 from src.app.db import db
@@ -10,6 +11,7 @@ def list_all_alunos():
     all_alunos = db.session.query(Aluno).all()
 
     todos = [{
+            "id": aluno.id,
             "nome": aluno.nome,
             "data_entrada": aluno.data_entrada,
             "cotista": aluno.cotista,
@@ -35,3 +37,18 @@ def update_aluno(id):
         db.session.commit()
         return {"mensagem": f"Aluno com id {id} atualizado com sucesso"}, 200
     return {"erro": f"Aluno com id {id} não encontrado."}
+
+
+@aluno.route("/<int:id>", methods=["DELETE"])
+def delete_aluno(id):
+    busca_aluno = Aluno.query.get(id)
+
+    if busca_aluno:
+        db.session.delete(busca_aluno)
+        db.session.commit()
+
+        return {
+            "mensagem": f"Aluno com id {id} excluido com sucesso"
+
+        }
+    return {"erro": "Aluno não encontrado"}
