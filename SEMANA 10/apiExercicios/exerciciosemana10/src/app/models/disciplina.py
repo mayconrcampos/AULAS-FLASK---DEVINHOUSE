@@ -6,8 +6,7 @@ class Disciplina(db.Model):
     nome = db.Column(db.String, nullable=False)
     carga_horaria = db.Column(db.Integer, nullable=False)
 
-    def __init__(self, id, nome, carga_horaria) -> None:
-        self.id = id
+    def __init__(self, nome, carga_horaria) -> None:
         self.nome = nome
         self.carga_horaria = carga_horaria
     
